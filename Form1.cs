@@ -1,5 +1,9 @@
 namespace ExceptionsExample
 {
+    /// <summary>
+    /// Exception handling example
+    /// The original commit has no exceptions handled, so look back at that to see the additions.  
+    /// </summary>
     public partial class Form1 : Form
     {
         public Form1()
