@@ -18,14 +18,20 @@ namespace ExceptionsExample
             {
                 num1 = Int32.Parse(textBox1.Text);
                 num2 = Int32.Parse(textBox2.Text);
+                result = num1 / num2;
             }
             catch (FormatException)
             {
-                textBox1.Text = "Input format is incorrect. Please enter valid integers.";
+                textBox1.Text = "FORMAT ERROR";
                 return;
             }
-           
-            result = num1 / num2;
+            catch(DivideByZeroException)
+            {
+                textBox1.Text = "DIV ZERO";
+                return;
+            }
+          
+
 
             textBox1.Text = "result = " + result.ToString();
         }
