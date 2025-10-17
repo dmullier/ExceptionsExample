@@ -32,10 +32,16 @@ namespace ExceptionsExample
                 textBox1.Text = "FORMAT2 ERROR";
                 return;
             }
+            try
+            {
+                result = num1 / num2;
+            }
             catch (DivideByZeroException)
             {
                 textBox1.Text = "DIV ZERO";
-                return;
+                System.InvalidOperationException ex = new System.InvalidOperationException("you tried to divide "+num1+" by "+num2);
+                throw ex;
+               
             }
           
 
@@ -44,7 +50,15 @@ namespace ExceptionsExample
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            doSomething();
+            try 
+            { 
+                doSomething();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred: " + ex.Message);
+            }
+          
         }
     }
 }
