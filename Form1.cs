@@ -13,19 +13,26 @@ namespace ExceptionsExample
 
         public void doSomething()
         {
-            int num1, num2, result;
+            int num1, num2, result=0;
             try
             {
                 num1 = Int32.Parse(textBox1.Text);
-                num2 = Int32.Parse(textBox2.Text);
-                result = num1 / num2;
             }
             catch (FormatException)
             {
-                textBox1.Text = "FORMAT ERROR";
+                textBox1.Text = "FORMAT1 ERROR";
                 return;
             }
-            catch(DivideByZeroException)
+            try
+            {
+                num2 = Int32.Parse(textBox2.Text);
+            }
+            catch (FormatException)
+            {
+                textBox1.Text = "FORMAT2 ERROR";
+                return;
+            }
+            catch (DivideByZeroException)
             {
                 textBox1.Text = "DIV ZERO";
                 return;
